@@ -11,5 +11,6 @@ namespace TicTacToe
         {
             Symbol = symbol;
         }
+
     }
 }

@@ -10,8 +10,8 @@ namespace TicTacToe
         {
             InitializeBoard();
         }
-        
-        private void InitializeBoard() 
+
+        private void InitializeBoard()
         {
             for (int row = 0; row < 3; row++)
             {
@@ -29,7 +29,7 @@ namespace TicTacToe
                 for (int columns = 0; columns < 3; columns++)
                 {
                     Console.Write(board[row, columns]);
-                    if (columns < 2) Console.Write("|");      
+                    if (columns < 2) Console.Write("|");
                 }
                 Console.WriteLine();
                 if (row < 2) Console.WriteLine("-+-+-");
@@ -46,13 +46,13 @@ namespace TicTacToe
             return false;
         }
 
-        public bool CheckForWinner(char symbol) 
+        public bool CheckForWinner(char symbol)
         {
             for (int i = 0; i < 3; i++)
             {
                 if (board[i, 0] == symbol && board[i, 1] == symbol && board[i, 2] == symbol)
-                { 
-                    return true; 
+                {
+                    return true;
                 }
             }
             for (int i = 0; i < 3; i++)
@@ -73,12 +73,12 @@ namespace TicTacToe
 
             return false;
         }
-        
-        public bool isBoardFull()
+
+        public bool IsBoardFull()
         {
-            for (int row = 0; row < board.Length; row++)
+            for (int row = 0; row < board.GetLength(0); row++) 
             {
-                for (int column = 0; column < 3; column++)
+                for (int column = 0; column < board.GetLength(1); column++) 
                 {
                     if (board[row, column] == ' ')
                     {
@@ -89,6 +89,5 @@ namespace TicTacToe
 
             return true;
         }
-
     }
 }
