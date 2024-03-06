@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace TicTacToe
 {
@@ -33,6 +34,7 @@ namespace TicTacToe
                 }
             }
         }
+     
         static void StartGame()
         {
             GameBoard board = new GameBoard();
@@ -67,7 +69,7 @@ namespace TicTacToe
                             break;
                         }
                     }
-                    else if (board.isBoardFull())
+                    else if (board.IsBoardFull())
                     {
                         Console.Clear();
                         board.DisplayBoard();
@@ -80,13 +82,15 @@ namespace TicTacToe
                     {
                         Console.WriteLine("That spot is already taken. Try again.");
                         Console.ReadKey();
+                        currentPlayer = currentPlayer == player1 ? player2 : player1;
                     }
-
-                    currentPlayer = currentPlayer == player1 ? player2 : player1;
                 }
                 catch (Exception ex) { Console.WriteLine("Wrong input! Pick from [0,1,2]!"); }
+                currentPlayer = currentPlayer == player1 ? player2 : player1;
+
 
             }
         }
+
     }
 }
