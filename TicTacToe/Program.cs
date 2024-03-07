@@ -68,16 +68,17 @@ namespace TicTacToe
                             Console.ReadKey();
                             break;
                         }
+                        else if (board.IsBoardFull())
+                        {
+                            Console.Clear();
+                            board.DisplayBoard();
+                            Console.WriteLine("It's a tie!");
+                            Console.WriteLine("Press any key to return to the main menu...");
+                            Console.ReadKey();
+                            break;
+                        }
                     }
-                    else if (board.IsBoardFull())
-                    {
-                        Console.Clear();
-                        board.DisplayBoard();
-                        Console.WriteLine("It's a tie!");
-                        Console.WriteLine("Press any key to return to the main menu...");
-                        Console.ReadKey();
-                        break;
-                    }
+                
                     else
                     {
                         Console.WriteLine("That spot is already taken. Try again.");
